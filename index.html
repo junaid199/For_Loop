@@ -1,20 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Loop</title>
 </head>
-<body>
-    
-    <script>
-for(let i=0; i<10 ;i++){
 
-    console.log(`5 x ${i+1}`,i);
-}
+<body>
+    <h1>Recorded Temperature from last day</h1>
+
+    <script>
+        let Temp = [24, 28, 21, 24, 27, 30, 29, 28, 32, 33, 34, 31, 26, 25, 39, 37, 38, 36, 40, 22, 41, 39, 18, 19];
+
+        let Max = [];
+        let Min = [];
+        let Avg = [];
+        let ThreshHold = 26;
+
+
+        for (let i = 0; i < Temp.length; i++) {
+
+            if (Max < Temp[i]) {
+                Max = Temp[i]
+            }
+        }
+        for (let i = 0; i < Temp.length; i++) {
+
+            if (Min > Temp[i]) {
+                Min = Temp[i]
+            }
+        }
+        for (let i = 0; i < Temp.length; i++) {
+
+            Avg = Temp[i] + Avg
+        }
+        Avg = Avg / Temp.length;
+
+        let count = 0;
+        for (let i = 0; i < Temp.length; i++) {
+
+            if (Temp[i] < ThreshHold) {
+                count=count+1;
+            }
+        }
+            let count2 = 0;
+        for (let i = 0; i < Temp.length; i++) {
+
+            if (Temp[i] > ThreshHold) {
+                count2=count2+1;
+            }
+        }
+
+
+        console.log("Array:", Temp);
+        console.log("Maximum value:", Max);
+        console.log("Minimum value:", Min);
+        console.log("Average value:", Avg);
+        console.log("ThreshHold value:", ThreshHold);
+        console.log("Temperature lower Than ThreshHold:", (count*100)/Temp.length);
+        console.log("Temperature Greater Than ThreshHold:", (count2*100)/Temp.length);
 
     </script>
 
 </body>
+
 </html>
